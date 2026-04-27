@@ -1,8 +1,18 @@
+# PENDIENTES A AJUSTAR: MUY IMPORTANTE
+"""
+- Evaluar si la camara permite capturas por hardware (sin pasar por el CPU) usando v4l2-ctl
+correr: v4l2-ctl -d /dev/video4 --list-formats-ext
+En caso sea soportado, usarlo 
+
+- Propuesta de optimizacion:
+1. Configurar la camara para capturar con v4l2-ctl en luegar de fswebcam
+2. Usar ffmpeg para comprimir a jpeg con calidad 75 (o menor)
+"""
+
 # minimal example to test cam shot
 import subprocess   # for running shell commands on python
 import time         # control time 
 import os           # create directories 
-import threading
 
 # Configuración de devices
 TOTAL_FOTOS = 3
