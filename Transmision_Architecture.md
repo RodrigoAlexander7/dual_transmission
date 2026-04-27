@@ -38,11 +38,16 @@ el tiempo debe ser fijo?
 
 8- Como enviar los paquetes por el xbee, en flujo continuo (sin pausas ni descanzos), creo que eso podria ser peligroso
 
-9- Usar CTS/RTS en modo api, asi no tenemos que configurar esperas ni cuando enviar o recivir manualmente
-
-10- Para esta implementacion sera mejor usar el modo API
 
 ------------------------------------------------------------------------------------
 
+https://chat.deepseek.com/share/b4yrao4w4p4aotkkl7
 
-
+1- Se pueden usar datos en binarios usando struct 
+2- Si se pueden enviar en un solo paquete de telemetria, tambien se deberia usar struct.pack
+3- threading es mass liviano y preferible
+4- El modo API es ley
+5- La idea planteada es buena, Usar CTS/RTS es mejor para no tener que establecer tiempos de espera
+6- Si, con el checksum y con marcadores de inicio y fin y tipo de paquete
+7- la paquetizas y marcas cada paquete con un numero de secuencia y el total de chuncks, y el receptor los reensambla
+8- Usar CTS/RTS para controlar el flujo de datos
