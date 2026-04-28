@@ -5,15 +5,36 @@ Frame format:
     [0x7E] [Length MSB][Length LSB] [Frame Data ...] [Checksum]
 
 Frame Data starts with a Frame Type byte:
-    0x00 = TX Request 64-bit
-    0x89 = TX Status
-    0x80 = RX Packet 64-bit
+    0x00 = TX Request 64-bit    -> Envio de datos con direccion de 64 bits
+    0x89 = TX Status            -> Respuesta del modulo a un envio, indica si se envio con exito o no
+    0x80 = RX Packet 64-bit     -> Formato de trama para lo que llega, contien la direccion de origen, es creada dinamicamente por el xbee
+    ej:
+    Frame Data = [0x00] [frame_id] [Dirección de destino 64 bits] [Opciones] [Datos]
+                1 byte     1 byte      8 bytes           1 byte      N bytes
+    Frame Data: [0x89] [frame_id] [status]
+    Frame Data = [0x80] [Dirección de origen 64 bits] [RSSI (1 byte)] [Opciones (1 byte)] [Datos (payload)]
+
+
+* Entonces por cada paquete que se envia 0x00, se recibe un 0x80 y se vuelve a enviar (desde el receptor) un 0x89?
+    
 """
 
-from __future__ import annotations
+"""
+* Notacion big-endian: el byte mas significativo va primero, ej: 0x1234 se guarda como [0x12, 0x34]     tal cual lectura humana
 
-import struct
-from dataclasses import dataclass
+
+[0x7E] -> 01 byte de inicio, marca el inicion de trama
+[Length MSB] y [Length LSB] -> 02 bytes -> Longitud de Frame Data, usa notacion big-endian 
+[Frame Data ...] -> N bytes -> Contenido de la trama, empieza con un byte de tipo de trama (explicado arriba)
+
+"""
+
+
+
+from __future__ import annotations # para tipos que se refieren a si mismos, pj: Persona que tiene un atributo hijo de tipo Persona
+
+import struct       # empaquetar datos en estructuras binarias
+from dataclasses import dataclass   # decorador dataclass para clases de solo datos
 
 # ── Frame type constants ─────────────────────────────────────────────
 FRAME_TX_REQUEST_64 = 0x00

@@ -28,7 +28,7 @@ from xbee_frame import (
     read_frame,
 )
 
-ASSEMBLY_TIMEOUT_S = 120.0   # max seconds to wait for all chunks
+ASSEMBLY_TIMEOUT_S = 12.0   # max seconds to wait for all chunks
 
 
 def main() -> None:
