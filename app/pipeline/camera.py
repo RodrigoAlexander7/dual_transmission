@@ -52,7 +52,7 @@ def capturar_individual(device, nombre_archivo):
 
 def tomar_par_estereo(indice):
     timestamp = time.strftime("%H%M%S")
-    ruta = f"fotos_prueba/L_{indice}_{timestamp}.jpg"
+    ruta = f"fotos_{indice}_{timestamp}.jpg"
 
     # Creamos dos hilos para disparar las cámaras al "mismo" tiempo
     capturar_individual(device, ruta)

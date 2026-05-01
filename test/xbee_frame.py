@@ -14,13 +14,17 @@ Frame Data starts with a Frame Type byte:
     Frame Data: [0x89] [frame_id] [status]
     Frame Data = [0x80] [Dirección de origen 64 bits] [RSSI (1 byte)] [Opciones (1 byte)] [Datos (payload)]
 
+    * RSSI -> Values closer to 0 indicate a stronger signal (e.g., -30 dBm is excellent, -90 dBm is very poor).
 
 * Entonces por cada paquete que se envia 0x00, se recibe un 0x80 y se vuelve a enviar (desde el receptor) un 0x89?
     
 """
 
 """
-* Notacion big-endian: el byte mas significativo va primero, ej: 0x1234 se guarda como [0x12, 0x34]     tal cual lectura humana
+* Notacion big-endian (>H): el byte mas significativo va primero, ej: 0x1234 se guarda como [0x12, 0x34]     tal cual lectura humana
+
+    - > = big-endian (byte alto primero)
+    - H = unsigned short = entero de 2 bytes
 
 
 [0x7E] -> 01 byte de inicio, marca el inicion de trama
@@ -65,20 +69,22 @@ class RxPacket64:
 
 
 # ── Checksum ──────────────────────────────────────────────────────────
-
+# suma los bits y se queda solo con el byte menos significativo (mas a la derecha)
+# se usa el complemento (0xFF - sum), asi solo el receptor suma los bits y checksum y debe dar 0xFF para ser valido
 def _checksum(frame_data: bytes) -> int:
     return (0xFF - (sum(frame_data) & 0xFF)) & 0xFF
 
 
 # ── Build frames ──────────────────────────────────────────────────────
-
+# Helper to the above function -> Crea todo menos el Frame data 
 def build_api_frame(frame_data: bytes) -> bytes:
-    """Wrap frame_data with 0x7E delimiter, 2-byte length and checksum."""
+    """Wrap frame_data with 0x7E delimiter, 2-byte length and checksum.
+     --> [0x7E] [Length MSB][Length LSB] [Frame Data ...] [Checksum]"""
     length = len(frame_data)
     cs = _checksum(frame_data)
     return b"\x7E" + struct.pack(">H", length) + frame_data + bytes([cs])
 
-
+# Build the Frame Data and create the whole API frame for a TX Request 64-bit (0x00)
 def build_tx64(frame_id: int, dest64: bytes, payload: bytes) -> bytes:
     """Build a TX Request 64-bit frame (type 0x00)."""
     frame_data = (
@@ -99,8 +105,10 @@ def read_frame(ser, timeout_s: float = 2.0) -> bytes | None:
     Returns the raw frame bytes (including 0x7E, length, data, checksum)
     or None on timeout / incomplete read.
     """
+    # Guardar el timeout original del serial, establecer el nuevo timeout
     saved_timeout = ser.timeout
     ser.timeout = timeout_s
+
     try:
         # Scan for start delimiter
         while True:
