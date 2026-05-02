@@ -61,44 +61,11 @@ FRAME_TX_REQUEST_64 = 0x00
 FRAME_TX_STATUS     = 0x89
 FRAME_RX_PACKET_64  = 0x80
 
-# ── Application-layer packet type markers ────────────────────────────
-PKT_TYPE_IMAGE     = 0x01
-PKT_TYPE_TELEMETRY = 0x02
-
-# ── Application-layer header (image chunks) ──────────────────────────
+# ── Application-layer header ─────────────────────────────────────────
 # image_id (uint16) + chunk_idx (uint8) + total_chunks (uint8) = 4 bytes
 APP_HEADER_FMT  = ">HBB"
 APP_HEADER_SIZE = struct.calcsize(APP_HEADER_FMT)   # 4
-CHUNK_DATA_SIZE = 95  # bytes of JPEG data per chunk (95 + 4 header + 1 type = 100)
-
-# ── Telemetry binary format ──────────────────────────────────────────
-# >  = big-endian
-# I  = uint32  → time (ms)
-# h  = int16   → alt_ms5611 (×10), alt_bme280 (×10), temperature (×100),
-#                velocity_z (×100), accel_x/y/z (×100), gyro_z (×10), current (×100)
-# H  = uint16  → pressure (×10), voltage (×1000)
-TELEMETRY_FMT   = ">IhhHhhhhhhHh"
-TELEMETRY_SIZE  = struct.calcsize(TELEMETRY_FMT)    # 26
-TELEMETRY_FIELDS = (
-    "time", "alt_ms5611", "alt_bme280", "pressure",
-    "temperature", "velocity_z", "accel_x", "accel_y",
-    "accel_z", "gyro_z", "voltage", "current",
-)
-# Scaling factors applied before packing (multiply) / after unpacking (divide)
-_TEL_SCALES = (
-    1,     # time       – raw ms, uint32
-    10,    # alt_ms5611 – ×10  → 0.1 m resolution
-    10,    # alt_bme280 – ×10
-    10,    # pressure   – ×10  → 0.1 hPa
-    100,   # temperature– ×100 → 0.01 °C
-    100,   # velocity_z – ×100 → 0.01 m/s
-    100,   # accel_x    – ×100 → 0.01 m/s²
-    100,   # accel_y
-    100,   # accel_z
-    10,    # gyro_z     – ×10  → 0.1 °/s
-    1000,  # voltage    – ×1000→ 0.001 V
-    100,   # current    – ×100 → 0.01 mA
-)
+CHUNK_DATA_SIZE = 96  # bytes of JPEG data per chunk
 
 """
 APP_HEADER_FMT  = ">HBB"
@@ -233,19 +200,15 @@ def parse_rx64(frame: bytes) -> RxPacket64 | None:
 # Enviar un chunk con cabecera de aplicación (image_id, chunk_idx, total_chunks) + datos del chunk
 # Paqute -> Frame data -> datos (payload) 
 # este chunck es el payload
-# Formato: [PKT_TYPE_IMAGE] [app_header 4B] [data 95B] = 100 bytes
 def build_chunk_payload(image_id: int, chunk_idx: int, total_chunks: int,
                         data: bytes) -> bytes:
-    """Pack type marker + 4-byte application header + chunk data."""
+    """Pack the 4-byte application header + chunk data."""
     header = struct.pack(APP_HEADER_FMT, image_id, chunk_idx, total_chunks)
-    return bytes([PKT_TYPE_IMAGE]) + header + data
+    return header + data
 
 # desempaquetar la cabecera de aplicación (el payload), devuelve image_id, chunk_idx, total_chunks y los datos del chunk
-# El byte marcador de tipo (0x01) ya fue removido antes de llamar a esta función
 def parse_chunk_payload(payload: bytes):
-    """Unpack application header.  Returns (image_id, chunk_idx, total_chunks, data).
-    
-    Expects payload WITHOUT the leading type marker byte."""
+    """Unpack application header.  Returns (image_id, chunk_idx, total_chunks, data)."""
     if len(payload) < APP_HEADER_SIZE:
         return None
     image_id, chunk_idx, total_chunks = struct.unpack(
@@ -253,58 +216,3 @@ def parse_chunk_payload(payload: bytes):
     )
     data = payload[APP_HEADER_SIZE:]
     return image_id, chunk_idx, total_chunks, data
-
-
-# ── Telemetry helpers ─────────────────────────────────────────────────
-
-def _clamp(value: int | float, min_val: int, max_val: int) -> int:
-    """Clamp a numeric value to [min_val, max_val] and return as int."""
-    return int(max(min_val, min(max_val, value)))
-
-
-def build_telemetry_payload(telemetry: dict[str, float | int]) -> bytes:
-    """Scale float telemetry values to integers and pack into binary payload.
-    
-    Returns: bytes([PKT_TYPE_TELEMETRY]) + struct.pack(TELEMETRY_FMT, ...)
-    Total: 1 + 26 = 27 bytes.
-    """
-    raw_vals = []
-    for field_name, scale in zip(TELEMETRY_FIELDS, _TEL_SCALES):
-        raw = telemetry.get(field_name, 0)
-        scaled = raw * scale  # apply scaling
-        raw_vals.append(scaled)
-
-    # Clamp to struct type ranges before packing
-    # Format: >I  h  h  H  h  h  h  h  h  h  H  h
-    packed_vals = (
-        _clamp(raw_vals[0],  0, 0xFFFFFFFF),        # time       uint32
-        _clamp(raw_vals[1],  -32768, 32767),         # alt_ms5611 int16
-        _clamp(raw_vals[2],  -32768, 32767),         # alt_bme280 int16
-        _clamp(raw_vals[3],  0, 65535),              # pressure   uint16
-        _clamp(raw_vals[4],  -32768, 32767),         # temperature int16
-        _clamp(raw_vals[5],  -32768, 32767),         # velocity_z int16
-        _clamp(raw_vals[6],  -32768, 32767),         # accel_x    int16
-        _clamp(raw_vals[7],  -32768, 32767),         # accel_y    int16
-        _clamp(raw_vals[8],  -32768, 32767),         # accel_z    int16
-        _clamp(raw_vals[9],  -32768, 32767),         # gyro_z     int16
-        _clamp(raw_vals[10], 0, 65535),              # voltage    uint16
-        _clamp(raw_vals[11], -32768, 32767),         # current    int16
-    )
-
-    return bytes([PKT_TYPE_TELEMETRY]) + struct.pack(TELEMETRY_FMT, *packed_vals)
-
-
-def parse_telemetry_payload(payload: bytes) -> dict[str, float] | None:
-    """Unpack binary telemetry payload and re-scale to original float values.
-    
-    Expects payload WITHOUT the leading type marker byte.
-    Returns dict with field names as keys, or None if payload is too short.
-    """
-    if len(payload) < TELEMETRY_SIZE:
-        return None
-
-    values = struct.unpack(TELEMETRY_FMT, payload[:TELEMETRY_SIZE])
-    result: dict[str, float] = {}
-    for field_name, raw_val, scale in zip(TELEMETRY_FIELDS, values, _TEL_SCALES):
-        result[field_name] = raw_val / scale
-    return result

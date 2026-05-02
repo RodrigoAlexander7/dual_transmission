@@ -47,7 +47,7 @@ https://chat.deepseek.com/share/b4yrao4w4p4aotkkl7
 2- Si se pueden enviar en un solo paquete de telemetria, tambien se deberia usar struct.pack
 3- threading es mass liviano y preferible
 4- El modo API es ley
-5- La idea planteada es buena, Usar CTS/RTS es mejor para no tener que establecer tiempos de espera
+5- La idea planteada es buena, Usar CTS/RTS es mejor para no tener que establecer tiempos de espera (aunque en la practica es bueno siempre agregarlos para no saturar eel xbee o perder datos)
 6- Si, con el checksum y con marcadores de inicio y fin y tipo de paquete
 7- la paquetizas y marcas cada paquete con un numero de secuencia y el total de chuncks, y el receptor los reensambla
 8- Usar CTS/RTS para controlar el flujo de datos
