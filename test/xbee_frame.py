@@ -206,7 +206,7 @@ def build_chunk_payload(image_id: int, chunk_idx: int, total_chunks: int,
     header = struct.pack(APP_HEADER_FMT, image_id, chunk_idx, total_chunks)
     return header + data
 
-# desempaquetar la cabecera de aplicación, devuelve image_id, chunk_idx, total_chunks y los datos del chunk
+# desempaquetar la cabecera de aplicación (el payload), devuelve image_id, chunk_idx, total_chunks y los datos del chunk
 def parse_chunk_payload(payload: bytes):
     """Unpack application header.  Returns (image_id, chunk_idx, total_chunks, data)."""
     if len(payload) < APP_HEADER_SIZE:

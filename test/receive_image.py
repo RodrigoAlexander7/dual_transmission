@@ -28,7 +28,8 @@ from xbee_frame import (
     read_frame,
 )
 
-ASSEMBLY_TIMEOUT_S = 31.0   # max seconds to wait for all chunks
+# 60 seg considerando que el xbee pro s1 es lento y que estamos usando 9600 baudios
+ASSEMBLY_TIMEOUT_S = 60.0   # max seconds to wait for all chunks
 
 
 def main() -> None:
@@ -53,24 +54,25 @@ def main() -> None:
 
     # Storage: { image_id: { chunk_idx: data_bytes } }
     images: dict[int, dict[int, bytes]] = {}
-    totals: dict[int, int] = {}               # image_id → total_chunks
-    rssi_samples: list[int] = []
+    totals: dict[int, int] = {}               # image_id → total_chunks: este diccionario nos dice cuantos chunks tiene cada imagen
+    rssi_samples: list[int] = []              # Es una lista de valores RSSI de todos los paquetes recibidos correctamente.
     packets_received = 0
 
     with serial.Serial(args.port, args.baud, timeout=1.0) as ser:
         ser.reset_input_buffer()
-        t_start: float | None = None
+        t_start: float | None = None    # variable que marcara el tiempo de inicio en que recibamos el primer chunk válido. Hasta ese momento, no empieza a contar el timeout de ensamblado
 
         try:
             while True:
-                frame = read_frame(ser, timeout_s=2.0)
-                if frame is None:
+                frame = read_frame(ser, timeout_s=0.5)
+                if frame is None:   # en 0.5 no se detecto trama, o esta corrupta, o se descrto 
                     # Check assembly timeout
-                    if t_start is not None and time.monotonic() - t_start > ASSEMBLY_TIMEOUT_S:
+                    if t_start is not None and time.monotonic() - t_start > ASSEMBLY_TIMEOUT_S:     #si ya esta corriendo el tiempo (recibimos el 1er chunk) y si ya paso el ASSEMBLY_TIMEOUT_S desde que recibimos el primer chunk, asumimos que nunca llegara
                         print(f"\n  Timeout ({ASSEMBLY_TIMEOUT_S}s) waiting for remaining chunks.")
                         break
-                    continue
-
+                    continue    # continue salta a la siguiente iteracion del while, ignora lo de abajo
+                
+                # Parse RX 64-bit frame
                 rx = parse_rx64(frame)
                 if rx is None:
                     continue            # not an RX 64-bit frame
