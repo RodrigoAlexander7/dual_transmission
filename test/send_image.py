@@ -33,7 +33,7 @@ from xbee_frame import (
 )
 
 MAX_RETRIES = 5          # retries per chunk at application level
-TX_STATUS_TIMEOUT_S = 2.0
+TX_STATUS_TIMEOUT_S = 0.5
 
 
 def main() -> None:
@@ -56,6 +56,8 @@ def main() -> None:
     image_data = image_path.read_bytes()
     dest_addr  = bytes.fromhex(args.dest)
 
+    # Maximo de 255 por que el campo total_chunks en la cabecera de aplicación es 1 byte (0-255)
+    # Equivale aprox a 24.5KB
     total_chunks = math.ceil(len(image_data) / CHUNK_DATA_SIZE)
     if total_chunks > 255:
         print(f"ERROR: image too large ({len(image_data)}B = {total_chunks} chunks, max 255)")
@@ -74,6 +76,7 @@ def main() -> None:
     print()
 
     # ── Open serial ─────────────────────────────────────────────────
+    # Con timeout espera un segundo a que lleguen datos, si no llegan devuelve None
     with serial.Serial(args.port, args.baud, timeout=1.0) as ser:
         ser.reset_input_buffer()
         time.sleep(0.1)
@@ -88,7 +91,7 @@ def main() -> None:
                 # Extract chunk data
                 start = idx * CHUNK_DATA_SIZE
                 end   = start + CHUNK_DATA_SIZE
-                chunk = image_data[start:end]
+                chunk = image_data[start:end]   # se calcula el chunk a enviar
 
                 app_payload = build_chunk_payload(
                     image_id=args.image_id,
@@ -101,9 +104,9 @@ def main() -> None:
                 success = False
                 for attempt in range(1, MAX_RETRIES + 1):
                     api_frame = build_tx64(frame_id, dest_addr, app_payload)
-                    ser.reset_input_buffer()
-                    ser.write(api_frame)
-                    ser.flush()
+                    ser.reset_input_buffer()     # Clear any old frames before sending
+                    ser.write(api_frame)    # send frame in serial
+                    ser.flush() # espera hasta que lo escrito se transmita
 
                     # Wait for TX Status
                     status = _wait_tx_status(ser, frame_id)
@@ -126,9 +129,9 @@ def main() -> None:
 
                 # Progress log
                 if (idx + 1) % 10 == 0 or idx == total_chunks - 1:
-                    elapsed = time.perf_counter() - t_start
-                    pct  = 100.0 * (idx + 1) / total_chunks
-                    rate = (idx + 1) / elapsed if elapsed > 0 else 0
+                    elapsed = time.perf_counter() - t_start # tiempo transcurrido desde que se empezo a enviar el primer chunk
+                    pct  = 100.0 * (idx + 1) / total_chunks # porcentaje de chunks procesados (exitosos + fallidos) -> es cuanto de la imagen ya fue enviada (no mide el exito, si falta algo igual lo cuenta como progreso)
+                    rate = (idx + 1) / elapsed if elapsed > 0 else 0 # velocidad de procesamiento en chunks por segundo.
                     print(
                         f"  [{pct:5.1f}%]  chunk {idx+1}/{total_chunks}  "
                         f"ok={sent_ok}  fail={sent_fail}  "
@@ -147,10 +150,11 @@ def main() -> None:
 
 def _wait_tx_status(ser, expected_frame_id: int) -> int | None:
     """Read frames until we get TX Status matching expected_frame_id, or timeout."""
-    deadline = time.monotonic() + TX_STATUS_TIMEOUT_S
-    while time.monotonic() < deadline:
+    
+    deadline = time.monotonic() + TX_STATUS_TIMEOUT_S   ## desde que empezamos a contar (monotonic) hasta el tiempo limite
+    while time.monotonic() < deadline:  
         remaining = max(deadline - time.monotonic(), 0.05)
-        frame = read_frame(ser, timeout_s=remaining)
+        frame = read_frame(ser, timeout_s=remaining)    # intentamos leer un frame valido en lo que queda de tiempo
         if frame is None:
             return None
         result = parse_tx_status(frame)
