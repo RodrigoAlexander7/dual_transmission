@@ -73,31 +73,47 @@ CHUNK_DATA_SIZE = 95  # bytes of JPEG data per chunk (95 + 4 header + 1 type = 1
 
 # ── Telemetry binary format ──────────────────────────────────────────
 # >  = big-endian
-# I  = uint32  → time (ms)
-# h  = int16   → alt_ms5611 (×10), alt_bme280 (×10), temperature (×100),
-#                velocity_z (×100), accel_x/y/z (×100), gyro_z (×10), current (×100)
-# H  = uint16  → pressure (×10), voltage (×1000)
-TELEMETRY_FMT   = ">IhhHhhhhhhHh"
-TELEMETRY_SIZE  = struct.calcsize(TELEMETRY_FMT)    # 26
+# I  = uint32  → time (ms), pres_ms5611 (Pa), pres_bme280 (Pa)
+# h  = int16   → temp_bme280 (×100), accel/gyro (×100), mag (×10), current_ina226 (×1000)
+# H  = uint16  → hum_bme280 (×100), power_ina226 (×100)
+TELEMETRY_FMT   = ">IIIhHhhhhhhhhhhH"
+TELEMETRY_SIZE  = struct.calcsize(TELEMETRY_FMT)    # 38
 TELEMETRY_FIELDS = (
-    "time", "alt_ms5611", "alt_bme280", "pressure",
-    "temperature", "velocity_z", "accel_x", "accel_y",
-    "accel_z", "gyro_z", "voltage", "current",
+    "time",
+    "pres_ms5611",
+    "pres_bme280",
+    "temp_bme280",
+    "hum_bme280",
+    "accel_x",
+    "accel_y",
+    "accel_z",
+    "gyro_x",
+    "gyro_y",
+    "gyro_z",
+    "mag_x",
+    "mag_y",
+    "mag_z",
+    "current_ina226",
+    "power_ina226",
 )
 # Scaling factors applied before packing (multiply) / after unpacking (divide)
 _TEL_SCALES = (
-    1,     # time       – raw ms, uint32
-    10,    # alt_ms5611 – ×10  → 0.1 m resolution
-    10,    # alt_bme280 – ×10
-    10,    # pressure   – ×10  → 0.1 hPa
-    100,   # temperature– ×100 → 0.01 °C
-    100,   # velocity_z – ×100 → 0.01 m/s
-    100,   # accel_x    – ×100 → 0.01 m/s²
+    1,     # time           – raw ms, uint32
+    1,     # pres_ms5611     – Pa
+    1,     # pres_bme280     – Pa
+    100,   # temp_bme280     – ×100 → 0.01 C
+    100,   # hum_bme280      – ×100 → 0.01 %
+    100,   # accel_x         – ×100 → 0.01 m/s2
     100,   # accel_y
     100,   # accel_z
-    10,    # gyro_z     – ×10  → 0.1 °/s
-    1000,  # voltage    – ×1000→ 0.001 V
-    100,   # current    – ×100 → 0.01 mA
+    100,   # gyro_x          – ×100 → 0.01 dps
+    100,   # gyro_y
+    100,   # gyro_z
+    10,    # mag_x           – ×10  → 0.1 uT
+    10,    # mag_y
+    10,    # mag_z
+    1000,  # current_ina226  – ×1000→ 0.001 A
+    100,   # power_ina226    – ×100 → 0.01 W
 )
 
 """
@@ -266,7 +282,7 @@ def build_telemetry_payload(telemetry: dict[str, float | int]) -> bytes:
     """Scale float telemetry values to integers and pack into binary payload.
     
     Returns: bytes([PKT_TYPE_TELEMETRY]) + struct.pack(TELEMETRY_FMT, ...)
-    Total: 1 + 26 = 27 bytes.
+    Total: 1 + 38 = 39 bytes.
     """
     raw_vals = []
     for field_name, scale in zip(TELEMETRY_FIELDS, _TEL_SCALES):
@@ -275,20 +291,24 @@ def build_telemetry_payload(telemetry: dict[str, float | int]) -> bytes:
         raw_vals.append(scaled)
 
     # Clamp to struct type ranges before packing
-    # Format: >I  h  h  H  h  h  h  h  h  h  H  h
+    # Format: > I I I h H h h h h h h h h h h H
     packed_vals = (
-        _clamp(raw_vals[0],  0, 0xFFFFFFFF),        # time       uint32
-        _clamp(raw_vals[1],  -32768, 32767),         # alt_ms5611 int16
-        _clamp(raw_vals[2],  -32768, 32767),         # alt_bme280 int16
-        _clamp(raw_vals[3],  0, 65535),              # pressure   uint16
-        _clamp(raw_vals[4],  -32768, 32767),         # temperature int16
-        _clamp(raw_vals[5],  -32768, 32767),         # velocity_z int16
-        _clamp(raw_vals[6],  -32768, 32767),         # accel_x    int16
-        _clamp(raw_vals[7],  -32768, 32767),         # accel_y    int16
-        _clamp(raw_vals[8],  -32768, 32767),         # accel_z    int16
-        _clamp(raw_vals[9],  -32768, 32767),         # gyro_z     int16
-        _clamp(raw_vals[10], 0, 65535),              # voltage    uint16
-        _clamp(raw_vals[11], -32768, 32767),         # current    int16
+        _clamp(raw_vals[0],  0, 0xFFFFFFFF),        # time           uint32
+        _clamp(raw_vals[1],  0, 0xFFFFFFFF),        # pres_ms5611    uint32
+        _clamp(raw_vals[2],  0, 0xFFFFFFFF),        # pres_bme280    uint32
+        _clamp(raw_vals[3],  -32768, 32767),        # temp_bme280    int16
+        _clamp(raw_vals[4],  0, 65535),             # hum_bme280     uint16
+        _clamp(raw_vals[5],  -32768, 32767),        # accel_x       int16
+        _clamp(raw_vals[6],  -32768, 32767),        # accel_y       int16
+        _clamp(raw_vals[7],  -32768, 32767),        # accel_z       int16
+        _clamp(raw_vals[8],  -32768, 32767),        # gyro_x        int16
+        _clamp(raw_vals[9],  -32768, 32767),        # gyro_y        int16
+        _clamp(raw_vals[10], -32768, 32767),        # gyro_z        int16
+        _clamp(raw_vals[11], -32768, 32767),        # mag_x         int16
+        _clamp(raw_vals[12], -32768, 32767),        # mag_y         int16
+        _clamp(raw_vals[13], -32768, 32767),        # mag_z         int16
+        _clamp(raw_vals[14], -32768, 32767),        # current_ina226 int16
+        _clamp(raw_vals[15], 0, 65535),             # power_ina226   uint16
     )
 
     return bytes([PKT_TYPE_TELEMETRY]) + struct.pack(TELEMETRY_FMT, *packed_vals)

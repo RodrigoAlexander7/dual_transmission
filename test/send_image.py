@@ -77,22 +77,29 @@ def _sensor_loop(
                 if log_sensors:
                     logger.info(
                         "[SENSORS]  "
-                        "alt_ms5611=%6.1fm  alt_bme280=%6.1fm  "
-                        "pres=%7.2fhPa  temp=%5.2f°C  vz=%6.2fm/s  "
-                        "ax=%6.2f  ay=%6.2f  az=%6.2f m/s²  "
-                        "gz=%6.1f°/s  "
-                        "V=%5.3fV  I=%7.2fmA",
-                        data.get("alt_ms5611", 0.0),
-                        data.get("alt_bme280",  0.0),
-                        data.get("pressure",    0.0),
-                        data.get("temperature", 0.0),
-                        data.get("velocity_z",  0.0),
-                        data.get("accel_x",     0.0),
-                        data.get("accel_y",     0.0),
-                        data.get("accel_z",     0.0),
-                        data.get("gyro_z",      0.0),
-                        data.get("voltage",     0.0),
-                        data.get("current",     0.0),
+                        "t=%dms  "
+                        "pres_ms5611=%8.1fPa  pres_bme280=%8.1fPa  "
+                        "temp_bme280=%5.2fC  hum_bme280=%5.1f%%  "
+                        "ax=%6.2f  ay=%6.2f  az=%6.2f m/s2  "
+                        "gx=%6.2f  gy=%6.2f  gz=%6.2f dps  "
+                        "mx=%6.1f  my=%6.1f  mz=%6.1f uT  "
+                        "I=%6.3fA  P=%6.2fW",
+                        int(data.get("time", 0)),
+                        data.get("pres_ms5611", 0.0),
+                        data.get("pres_bme280", 0.0),
+                        data.get("temp_bme280", 0.0),
+                        data.get("hum_bme280", 0.0),
+                        data.get("accel_x", 0.0),
+                        data.get("accel_y", 0.0),
+                        data.get("accel_z", 0.0),
+                        data.get("gyro_x", 0.0),
+                        data.get("gyro_y", 0.0),
+                        data.get("gyro_z", 0.0),
+                        data.get("mag_x", 0.0),
+                        data.get("mag_y", 0.0),
+                        data.get("mag_z", 0.0),
+                        data.get("current_ina226", 0.0),
+                        data.get("power_ina226", 0.0),
                     )
 
             except Exception as exc:

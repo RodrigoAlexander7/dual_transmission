@@ -102,8 +102,7 @@ def read_ina226(bus: Any, addr: int, r_shunt_ohm: float) -> tuple[float, float]:
 
     shunt_v = raw_s * 0.0000025
     current_a = shunt_v / r_shunt_ohm
-    current_ma = current_a * 1000.0
-    return voltage_v, current_ma
+    return voltage_v, current_a
 
 
 def init_bmi160(bus: Any, addr: int) -> None:
@@ -115,18 +114,22 @@ def init_bmi160(bus: Any, addr: int) -> None:
     bus.write_byte_data(addr, BMI160_REG_GYR_RANGE, 0x00)
 
 
-def read_bmi160(bus: Any, addr: int) -> tuple[float, float, float, float]:
+def read_bmi160(bus: Any, addr: int) -> tuple[float, float, float, float, float, float]:
     raw = bus.read_i2c_block_data(addr, 0x0C, 12)
+    gyro_x_raw = signed_16(raw[0], raw[1])
+    gyro_y_raw = signed_16(raw[2], raw[3])
     gyro_z_raw = signed_16(raw[4], raw[5])
     acc_x_raw = signed_16(raw[6], raw[7])
     acc_y_raw = signed_16(raw[8], raw[9])
     acc_z_raw = signed_16(raw[10], raw[11])
 
+    gyro_x_dps = gyro_x_raw / 16.4
+    gyro_y_dps = gyro_y_raw / 16.4
     gyro_z_dps = gyro_z_raw / 16.4
     acc_x = (acc_x_raw / 16384.0) * G_TO_MS2
     acc_y = (acc_y_raw / 16384.0) * G_TO_MS2
     acc_z = (acc_z_raw / 16384.0) * G_TO_MS2
-    return acc_x, acc_y, acc_z, gyro_z_dps
+    return acc_x, acc_y, acc_z, gyro_x_dps, gyro_y_dps, gyro_z_dps
 
 
 class SensorSuite:
@@ -143,9 +146,6 @@ class SensorSuite:
 
         self.state = SensorState()
         self._last_warn_time: dict[str, float] = {}
-
-        self._prev_altitude_m: float | None = None
-        self._prev_alt_time_s: float | None = None
 
         self._setup_interfaces()
         self._setup_sensors()
@@ -243,30 +243,29 @@ class SensorSuite:
         now_ms = int(time.time() * 1000)
         payload: dict[str, float | int] = {
             "time": now_ms,
-            "alt_ms5611": 0.0,
-            "alt_bme280": 0.0,
-            "pressure": 0.0,
-            "temperature": 0.0,
-            "velocity_z": 0.0,
+            "pres_ms5611": 0.0,
+            "pres_bme280": 0.0,
+            "temp_bme280": 0.0,
+            "hum_bme280": 0.0,
             "accel_x": 0.0,
             "accel_y": 0.0,
             "accel_z": 0.0,
+            "gyro_x": 0.0,
+            "gyro_y": 0.0,
             "gyro_z": 0.0,
-            "voltage": 0.0,
-            "current": 0.0,
-            "packets_received": 0,
+            "mag_x": 0.0,
+            "mag_y": 0.0,
+            "mag_z": 0.0,
+            "current_ina226": 0.0,
+            "power_ina226": 0.0,
         }
 
         if self.state.ms5611 and self.bus is not None and self.ms_coeffs is not None:
             try:
                 d1 = ms5611_read_adc(self.bus, self.cfg.ms5611_addr, CMD_CONVERT_D1)
                 d2 = ms5611_read_adc(self.bus, self.cfg.ms5611_addr, CMD_CONVERT_D2)
-                temp_c, pressure_hpa = ms5611_calculate(d1, d2, self.ms_coeffs)
-                payload["temperature"] = float(temp_c)
-                payload["pressure"] = float(pressure_hpa)
-                payload["alt_ms5611"] = float(
-                    pressure_to_altitude(pressure_hpa, self.cfg.sea_level_pressure_hpa)
-                )
+                _temp_c, pressure_hpa = ms5611_calculate(d1, d2, self.ms_coeffs)
+                payload["pres_ms5611"] = float(pressure_hpa * 100.0)
             except Exception as exc:
                 self._warn_runtime(
                     "ms5611", f"Lectura MS5611 fallida, manteniendo ceros: {exc}"
@@ -276,17 +275,11 @@ class SensorSuite:
             try:
                 temp_bme = float(self.bme_sensor.temperature)
                 pressure_bme = float(self.bme_sensor.pressure)
-                alt_bme = float(getattr(self.bme_sensor, "altitude", 0.0))
+                humidity_bme = float(getattr(self.bme_sensor, "humidity", 0.0))
 
-                payload["temperature"] = (
-                    temp_bme
-                    if payload["temperature"] == 0.0
-                    else payload["temperature"]
-                )
-                payload["pressure"] = (
-                    pressure_bme if payload["pressure"] == 0.0 else payload["pressure"]
-                )
-                payload["alt_bme280"] = alt_bme
+                payload["temp_bme280"] = temp_bme
+                payload["pres_bme280"] = pressure_bme * 100.0
+                payload["hum_bme280"] = humidity_bme
             except Exception as exc:
                 self._warn_runtime(
                     "bme280", f"Lectura BME280 fallida, manteniendo ceros: {exc}"
@@ -294,12 +287,14 @@ class SensorSuite:
 
         if self.state.bmi160 and self.bus is not None:
             try:
-                acc_x, acc_y, acc_z, gyro_z = read_bmi160(
+                acc_x, acc_y, acc_z, gyro_x, gyro_y, gyro_z = read_bmi160(
                     self.bus, self.cfg.bmi160_addr
                 )
                 payload["accel_x"] = float(acc_x)
                 payload["accel_y"] = float(acc_y)
                 payload["accel_z"] = float(acc_z)
+                payload["gyro_x"] = float(gyro_x)
+                payload["gyro_y"] = float(gyro_y)
                 payload["gyro_z"] = float(gyro_z)
             except Exception as exc:
                 self._warn_runtime(
@@ -308,11 +303,11 @@ class SensorSuite:
 
         if self.state.ina226 and self.bus is not None:
             try:
-                voltage, current_ma = read_ina226(
+                voltage, current_a = read_ina226(
                     self.bus, self.cfg.ina226_addr, self.cfg.ina226_r_shunt_ohm
                 )
-                payload["voltage"] = float(voltage)
-                payload["current"] = float(current_ma)
+                payload["current_ina226"] = float(current_a)
+                payload["power_ina226"] = float(voltage * current_a)
             except Exception as exc:
                 self._warn_runtime(
                     "ina226", f"Lectura INA226 fallida, manteniendo ceros: {exc}"
@@ -320,29 +315,12 @@ class SensorSuite:
 
         if self.state.mmc56x3 and self.mmc_sensor is not None:
             try:
-                _mx, _my, _mz = self.mmc_sensor.magnetic
+                mx, my, mz = self.mmc_sensor.magnetic
+                payload["mag_x"] = float(mx)
+                payload["mag_y"] = float(my)
+                payload["mag_z"] = float(mz)
             except Exception as exc:
                 self._warn_runtime("mmc56x3", f"Lectura MMC56x3 fallida: {exc}")
-
-        altitude_for_velocity = float(payload["alt_ms5611"])
-        if altitude_for_velocity == 0.0:
-            altitude_for_velocity = float(payload["alt_bme280"])
-
-        now_s = time.monotonic()
-        if (
-            altitude_for_velocity != 0.0
-            and self._prev_altitude_m is not None
-            and self._prev_alt_time_s is not None
-        ):
-            dt = now_s - self._prev_alt_time_s
-            if dt > 0:
-                payload["velocity_z"] = float(
-                    (altitude_for_velocity - self._prev_altitude_m) / dt
-                )
-
-        if altitude_for_velocity != 0.0:
-            self._prev_altitude_m = altitude_for_velocity
-            self._prev_alt_time_s = now_s
 
         return payload
 

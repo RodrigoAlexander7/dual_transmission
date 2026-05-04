@@ -183,10 +183,11 @@ def main() -> None:
                     elapsed = time.monotonic() - t_start
                     print(
                         f"  [TEL]  #{tel_packets_received}  "
-                        f"alt={tel_data['alt_ms5611']:.1f}m  "
-                        f"temp={tel_data['temperature']:.1f}°C  "
-                        f"pres={tel_data['pressure']:.1f}hPa  "
-                        f"v={tel_data['voltage']:.2f}V  "
+                        f"pres_ms5611={tel_data['pres_ms5611']:.1f}Pa  "
+                        f"temp_bme280={tel_data['temp_bme280']:.2f}C  "
+                        f"hum_bme280={tel_data['hum_bme280']:.1f}%  "
+                        f"I={tel_data['current_ina226']:.3f}A  "
+                        f"P={tel_data['power_ina226']:.2f}W  "
                         f"rssi=-{rx.rssi}dBm  "
                         f"elapsed={elapsed:.1f}s"
                     )

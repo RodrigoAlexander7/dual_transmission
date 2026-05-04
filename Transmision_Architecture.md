@@ -4,18 +4,21 @@ El xbee (emisor) y la laptop (receptor), estan a una distancia de 500m, con line
 
 Se enviaran datos de varios sensores los cuales seran los siguientes
             "time": now_ms,
-            "alt_ms5611": 0.0,
-            "alt_bme280": 0.0,
-            "pressure": 0.0,
-            "temperature": 0.0,
-            "velocity_z": 0.0,
+            "pres_ms5611": 0.0,
+            "pres_bme280": 0.0,
+            "temp_bme280": 0.0,
+            "hum_bme280": 0.0,
             "accel_x": 0.0,
             "accel_y": 0.0,
             "accel_z": 0.0,
+            "gyro_x": 0.0,
+            "gyro_y": 0.0,
             "gyro_z": 0.0,
-            "voltage": 0.0,
-            "current": 0.0,
-            "packets_received": 0,
+            "mag_x": 0.0,
+            "mag_y": 0.0,
+            "mag_z": 0.0,
+            "current_ina226": 0.0,
+            "power_ina226": 0.0,
 
 1- En que formato y tipo de archivo se deberian escribir los sensores en la rapsberry para reducir su impacto de escritura?
 

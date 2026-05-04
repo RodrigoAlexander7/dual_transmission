@@ -28,37 +28,46 @@ from pathlib import Path
 
 # ── Regex pattern ──────────────────────────────────────────────────────
 # Matches lines like:
-# 03:40:57  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.4m  ...
+# 03:40:57  INFO     [SENSORS]  t=12045123ms  pres_ms5611=101325.6Pa  ...
 _SENSORS_RE = re.compile(
     r"(?P<time>\d{2}:\d{2}:\d{2})"         # HH:MM:SS
     r".*?\[SENSORS\]\s+"
-    r"alt_ms5611=\s*(?P<alt_ms5611>-?[\d.]+)m\s+"
-    r"alt_bme280=\s*(?P<alt_bme280>-?[\d.]+)m\s+"
-    r"pres=\s*(?P<pressure>-?[\d.]+)hPa\s+"
-    r"temp=\s*(?P<temperature>-?[\d.]+).C\s+"      # °C (any char before C)
-    r"vz=\s*(?P<velocity_z>-?[\d.]+)m/s\s+"
+    r"t=\s*(?P<time_ms>\d+)ms\s+"
+    r"pres_ms5611=\s*(?P<pres_ms5611>-?[\d.]+)Pa\s+"
+    r"pres_bme280=\s*(?P<pres_bme280>-?[\d.]+)Pa\s+"
+    r"temp_bme280=\s*(?P<temp_bme280>-?[\d.]+)C\s+"
+    r"hum_bme280=\s*(?P<hum_bme280>-?[\d.]+)%\s+"
     r"ax=\s*(?P<accel_x>-?[\d.]+)\s+"
     r"ay=\s*(?P<accel_y>-?[\d.]+)\s+"
-    r"az=\s*(?P<accel_z>-?[\d.]+)\s+m/s"          # m/s² (² may vary by encoding)
-    r".?\s+"
-    r"gz=\s*(?P<gyro_z>-?[\d.]+).+?/s\s+"          # °/s
-    r"V=\s*(?P<voltage>-?[\d.]+)V\s+"
-    r"I=\s*(?P<current>-?[\d.]+)mA"
+    r"az=\s*(?P<accel_z>-?[\d.]+)\s+m/s2\s+"
+    r"gx=\s*(?P<gyro_x>-?[\d.]+)\s+"
+    r"gy=\s*(?P<gyro_y>-?[\d.]+)\s+"
+    r"gz=\s*(?P<gyro_z>-?[\d.]+)\s+dps\s+"
+    r"mx=\s*(?P<mag_x>-?[\d.]+)\s+"
+    r"my=\s*(?P<mag_y>-?[\d.]+)\s+"
+    r"mz=\s*(?P<mag_z>-?[\d.]+)\s+uT\s+"
+    r"I=\s*(?P<current_ina226>-?[\d.]+)A\s+"
+    r"P=\s*(?P<power_ina226>-?[\d.]+)W"
 )
 
 CSV_HEADERS = [
     "log_time",
-    "alt_ms5611_m",
-    "alt_bme280_m",
-    "pressure_hPa",
-    "temperature_C",
-    "velocity_z_ms",
+    "time_ms",
+    "pres_ms5611_Pa",
+    "pres_bme280_Pa",
+    "temp_bme280_C",
+    "hum_bme280_pct",
     "accel_x_ms2",
     "accel_y_ms2",
     "accel_z_ms2",
+    "gyro_x_dps",
+    "gyro_y_dps",
     "gyro_z_dps",
-    "voltage_V",
-    "current_mA",
+    "mag_x_uT",
+    "mag_y_uT",
+    "mag_z_uT",
+    "current_ina226_A",
+    "power_ina226_W",
 ]
 
 
@@ -69,18 +78,23 @@ def parse_line(line: str) -> dict | None:
         return None
     g = m.groupdict()
     return {
-        "log_time":       g["time"],
-        "alt_ms5611_m":   float(g["alt_ms5611"]),
-        "alt_bme280_m":   float(g["alt_bme280"]),
-        "pressure_hPa":   float(g["pressure"]),
-        "temperature_C":  float(g["temperature"]),
-        "velocity_z_ms":  float(g["velocity_z"]),
-        "accel_x_ms2":    float(g["accel_x"]),
-        "accel_y_ms2":    float(g["accel_y"]),
-        "accel_z_ms2":    float(g["accel_z"]),
-        "gyro_z_dps":     float(g["gyro_z"]),
-        "voltage_V":      float(g["voltage"]),
-        "current_mA":     float(g["current"]),
+        "log_time":         g["time"],
+        "time_ms":          int(g["time_ms"]),
+        "pres_ms5611_Pa":   float(g["pres_ms5611"]),
+        "pres_bme280_Pa":   float(g["pres_bme280"]),
+        "temp_bme280_C":    float(g["temp_bme280"]),
+        "hum_bme280_pct":   float(g["hum_bme280"]),
+        "accel_x_ms2":      float(g["accel_x"]),
+        "accel_y_ms2":      float(g["accel_y"]),
+        "accel_z_ms2":      float(g["accel_z"]),
+        "gyro_x_dps":       float(g["gyro_x"]),
+        "gyro_y_dps":       float(g["gyro_y"]),
+        "gyro_z_dps":       float(g["gyro_z"]),
+        "mag_x_uT":         float(g["mag_x"]),
+        "mag_y_uT":         float(g["mag_y"]),
+        "mag_z_uT":         float(g["mag_z"]),
+        "current_ina226_A": float(g["current_ina226"]),
+        "power_ina226_W":   float(g["power_ina226"]),
     }
 
 
@@ -152,13 +166,12 @@ def main() -> None:
             if not args.quiet:
                 print(
                     f"  [CSV #{parsed:04d}]  "
-                    f"alt={row['alt_ms5611_m']:.1f}m  "
-                    f"temp={row['temperature_C']:.2f}°C  "
-                    f"pres={row['pressure_hPa']:.2f}hPa  "
+                    f"pres={row['pres_ms5611_Pa']:.1f}Pa  "
+                    f"temp={row['temp_bme280_C']:.2f}C  "
+                    f"hum={row['hum_bme280_pct']:.1f}%  "
                     f"ax={row['accel_x_ms2']:.2f}  "
                     f"ay={row['accel_y_ms2']:.2f}  "
-                    f"az={row['accel_z_ms2']:.2f}  "
-                    f"gz={row['gyro_z_dps']:.1f}°/s"
+                    f"az={row['accel_z_ms2']:.2f}"
                 )
 
     except KeyboardInterrupt:
