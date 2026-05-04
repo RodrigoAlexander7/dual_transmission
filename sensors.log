@@ -1,0 +1,310 @@
+03:40:57  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.4m  pres= 378.74hPa  temp=21.40°C  vz=  0.00m/s  ax=  0.32  ay=  0.78  az=  9.62 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:40:57  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.5m  pres= 378.76hPa  temp=21.41°C  vz= -0.91m/s  ax=  0.30  ay=  0.80  az=  9.58 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 0/90  status=timeout  attempt=1/5
+03:40:58  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.1m  pres= 378.77hPa  temp=21.41°C  vz= -0.41m/s  ax=  0.32  ay=  0.81  az=  9.59 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:40:58  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.1m  pres= 378.76hPa  temp=21.41°C  vz=  0.33m/s  ax=  0.32  ay=  0.80  az=  9.55 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 0/90  status=timeout  attempt=2/5
+03:40:58  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.7m  pres= 378.76hPa  temp=21.41°C  vz=  0.10m/s  ax=  0.33  ay=  0.79  az=  9.65 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+03:40:59  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.8m  pres= 378.74hPa  temp=21.41°C  vz=  0.78m/s  ax=  0.74  ay=  1.22  az=  9.62 m/s²  gz=   1.2°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 0/90  status=timeout  attempt=3/5
+03:40:59  INFO     [SENSORS]  alt_ms5611=7570.0m  alt_bme280=2398.8m  pres= 378.77hPa  temp=21.41°C  vz= -1.16m/s  ax=  1.08  ay=  0.08  az=  9.62 m/s²  gz=  -3.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 0/90  status=timeout  attempt=4/5
+03:40:59  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.5m  pres= 378.77hPa  temp=21.43°C  vz= -0.10m/s  ax=  0.71  ay= -0.82  az=  9.52 m/s²  gz=  -6.2°/s  V=0.000V  I=   0.00mA
+03:41:00  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.3m  pres= 378.75hPa  temp=21.43°C  vz=  0.83m/s  ax=  0.81  ay= -1.47  az= 10.30 m/s²  gz=  10.7°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 0/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 0/90  after 5 attempts
+03:41:00  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.5m  pres= 378.76hPa  temp=21.41°C  vz= -0.31m/s  ax= -0.04  ay= -1.67  az=  9.55 m/s²  gz=   5.4°/s  V=0.000V  I=   0.00mA
+03:41:00  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.4m  pres= 378.75hPa  temp=21.41°C  vz=  0.44m/s  ax= -0.44  ay= -2.21  az=  9.13 m/s²  gz=   5.9°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 1/90  status=timeout  attempt=1/5
+03:41:01  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.4m  pres= 378.77hPa  temp=21.43°C  vz= -1.01m/s  ax= -0.91  ay= -2.10  az=  8.98 m/s²  gz=   6.9°/s  V=0.000V  I=   0.00mA
+03:41:01  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.4m  pres= 378.77hPa  temp=21.43°C  vz=  0.06m/s  ax= -0.81  ay= -0.60  az=  9.17 m/s²  gz=   5.2°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 1/90  status=timeout  attempt=2/5
+03:41:02  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.5m  pres= 378.76hPa  temp=21.43°C  vz=  0.39m/s  ax= -3.45  ay= -0.48  az=  9.63 m/s²  gz=   9.9°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 1/90  status=timeout  attempt=3/5
+03:41:02  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.6m  pres= 378.76hPa  temp=21.43°C  vz=  0.02m/s  ax= -4.66  ay= -0.54  az=  7.74 m/s²  gz=   3.7°/s  V=0.000V  I=   0.00mA
+03:41:02  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.3m  pres= 378.77hPa  temp=21.43°C  vz= -0.48m/s  ax= -6.26  ay= -0.45  az=  7.00 m/s²  gz=  -7.9°/s  V=0.000V  I=   0.00mA
+03:41:03  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.3m  pres= 378.77hPa  temp=21.45°C  vz= -0.04m/s  ax= -7.53  ay= -0.60  az=  5.64 m/s²  gz=   8.0°/s  V=0.000V  I=   0.00mA
+03:41:03  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.3m  pres= 378.76hPa  temp=21.43°C  vz=  0.47m/s  ax= -8.52  ay= -0.22  az=  2.31 m/s²  gz=  -8.4°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 1/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 1/90  after 5 attempts
+03:41:03  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.6m  pres= 378.76hPa  temp=21.43°C  vz=  0.10m/s  ax= -9.53  ay= -0.63  az=  1.00 m/s²  gz=  -2.0°/s  V=0.000V  I=   0.00mA
+03:41:04  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.8m  pres= 378.75hPa  temp=21.43°C  vz=  0.42m/s  ax= -9.34  ay= -0.44  az=  0.63 m/s²  gz=   1.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 2/90  status=timeout  attempt=1/5
+03:41:04  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2398.3m  pres= 378.73hPa  temp=21.43°C  vz=  0.87m/s  ax= -9.43  ay= -0.46  az=  0.50 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 2/90  status=timeout  attempt=2/5
+03:41:04  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.2m  pres= 378.76hPa  temp=21.43°C  vz= -1.30m/s  ax= -9.28  ay= -0.49  az=  0.49 m/s²  gz=  -0.5°/s  V=0.000V  I=   0.00mA
+03:41:05  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.2m  pres= 378.77hPa  temp=21.45°C  vz= -0.39m/s  ax= -9.29  ay= -0.64  az=  2.97 m/s²  gz=  -5.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 2/90  status=timeout  attempt=3/5
+03:41:05  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.1m  pres= 378.77hPa  temp=21.45°C  vz= -0.02m/s  ax= -6.18  ay= -0.54  az=  7.09 m/s²  gz=  -2.0°/s  V=0.000V  I=   0.00mA
+03:41:05  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.0m  pres= 378.76hPa  temp=21.45°C  vz=  0.33m/s  ax= -3.02  ay= -0.48  az=  8.85 m/s²  gz=  -4.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 2/90  status=timeout  attempt=4/5
+03:41:06  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.3m  pres= 378.76hPa  temp=21.45°C  vz=  0.12m/s  ax=  0.74  ay= -0.20  az=  9.66 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+03:41:06  INFO     [SENSORS]  alt_ms5611=7570.0m  alt_bme280=2398.3m  pres= 378.77hPa  temp=21.45°C  vz= -0.39m/s  ax=  0.29  ay= -0.03  az=  9.45 m/s²  gz=  -1.4°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 2/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 2/90  after 5 attempts
+03:41:07  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.4m  pres= 378.74hPa  temp=21.43°C  vz=  1.59m/s  ax= -0.59  ay=  1.34  az=  9.61 m/s²  gz=   1.9°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 3/90  status=timeout  attempt=1/5
+03:41:07  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.5m  pres= 378.77hPa  temp=21.45°C  vz= -1.74m/s  ax= -0.24  ay=  1.71  az=  9.49 m/s²  gz=   0.2°/s  V=0.000V  I=   0.00mA
+03:41:07  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.6m  pres= 378.75hPa  temp=21.45°C  vz=  1.20m/s  ax= -0.62  ay=  1.15  az=  9.54 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 3/90  status=timeout  attempt=2/5
+03:41:08  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.5m  pres= 378.76hPa  temp=21.45°C  vz= -0.62m/s  ax= -2.35  ay=  0.69  az=  9.99 m/s²  gz=  -6.5°/s  V=0.000V  I=   0.00mA
+03:41:08  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.3m  pres= 378.75hPa  temp=21.45°C  vz=  0.17m/s  ax= -4.19  ay=  0.21  az=  6.50 m/s²  gz=  -7.1°/s  V=0.000V  I=   0.00mA
+03:41:08  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.1m  pres= 378.76hPa  temp=21.46°C  vz= -0.18m/s  ax= -8.86  ay= -0.22  az=  3.04 m/s²  gz=  -7.9°/s  V=0.000V  I=   0.00mA
+03:41:09  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.4m  pres= 378.75hPa  temp=21.45°C  vz=  0.56m/s  ax= -9.83  ay= -0.30  az=  0.98 m/s²  gz=  -4.5°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 3/90  status=timeout  attempt=4/5
+03:41:09  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.4m  pres= 378.74hPa  temp=21.45°C  vz=  0.29m/s  ax= -9.18  ay= -0.67  az=  0.04 m/s²  gz=   1.8°/s  V=0.000V  I=   0.00mA
+03:41:09  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.5m  pres= 378.75hPa  temp=21.46°C  vz= -0.62m/s  ax= -9.58  ay= -0.68  az=  0.03 m/s²  gz=  -0.3°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 3/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 3/90  after 5 attempts
+03:41:10  INFO     [SENSORS]  alt_ms5611=7570.0m  alt_bme280=2398.6m  pres= 378.76hPa  temp=21.46°C  vz= -0.52m/s  ax= -9.21  ay= -0.68  az=  0.14 m/s²  gz=   0.7°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 4/90  status=timeout  attempt=1/5
+03:41:10  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2398.6m  pres= 378.73hPa  temp=21.46°C  vz=  1.72m/s  ax= -9.51  ay= -0.65  az=  0.47 m/s²  gz=  -0.7°/s  V=0.000V  I=   0.00mA
+03:41:11  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.7m  pres= 378.77hPa  temp=21.46°C  vz= -1.95m/s  ax= -9.56  ay= -0.66  az=  0.70 m/s²  gz=  -0.6°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 4/90  status=timeout  attempt=2/5
+03:41:11  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.7m  pres= 378.76hPa  temp=21.46°C  vz=  0.50m/s  ax= -8.95  ay= -0.95  az=  1.26 m/s²  gz=  -6.2°/s  V=0.000V  I=   0.00mA
+03:41:11  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.6m  pres= 378.75hPa  temp=21.48°C  vz=  0.67m/s  ax= -9.51  ay= -0.71  az=  1.11 m/s²  gz=  -4.3°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 4/90  status=timeout  attempt=3/5
+03:41:12  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.8m  pres= 378.77hPa  temp=21.48°C  vz= -1.14m/s  ax= -9.47  ay= -0.74  az=  0.77 m/s²  gz=  -0.7°/s  V=0.000V  I=   0.00mA
+03:41:12  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.6m  pres= 378.75hPa  temp=21.48°C  vz=  0.81m/s  ax= -9.60  ay= -0.90  az=  1.32 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 4/90  status=timeout  attempt=4/5
+03:41:12  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.3m  pres= 378.75hPa  temp=21.50°C  vz= -0.06m/s  ax= -9.17  ay= -0.77  az=  0.95 m/s²  gz=   4.5°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 4/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 4/90  after 5 attempts
+03:41:13  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.7m  pres= 378.74hPa  temp=21.51°C  vz=  0.44m/s  ax= -9.39  ay= -0.65  az=  1.03 m/s²  gz=  -3.1°/s  V=0.000V  I=   0.00mA
+03:41:13  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.6m  pres= 378.76hPa  temp=21.56°C  vz= -0.78m/s  ax= -8.87  ay= -1.13  az= -0.06 m/s²  gz=  -6.3°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 5/90  status=timeout  attempt=1/5
+03:41:13  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.4m  pres= 378.77hPa  temp=21.58°C  vz= -0.45m/s  ax= -9.32  ay= -1.25  az=  0.92 m/s²  gz=  -0.7°/s  V=0.000V  I=   0.00mA
+03:41:14  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.4m  pres= 378.76hPa  temp=21.56°C  vz=  0.52m/s  ax= -9.27  ay= -1.06  az=  1.24 m/s²  gz=  -2.3°/s  V=0.000V  I=   0.00mA
+03:41:14  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.4m  pres= 378.74hPa  temp=21.56°C  vz=  0.91m/s  ax= -9.37  ay= -1.14  az=  1.42 m/s²  gz=  -4.5°/s  V=0.000V  I=   0.00mA
+03:41:14  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.2m  pres= 378.75hPa  temp=21.56°C  vz= -0.62m/s  ax= -9.35  ay= -1.18  az=  0.86 m/s²  gz=  -0.6°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 5/90  status=timeout  attempt=3/5
+03:41:15  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.7m  pres= 378.77hPa  temp=21.58°C  vz= -0.87m/s  ax= -9.54  ay= -1.02  az=  1.80 m/s²  gz=  -1.6°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 5/90  status=timeout  attempt=4/5
+03:41:15  INFO     [SENSORS]  alt_ms5611=7571.0m  alt_bme280=2398.5m  pres= 378.71hPa  temp=21.61°C  vz=  3.16m/s  ax= -9.49  ay= -1.15  az=  1.61 m/s²  gz=  -4.4°/s  V=0.000V  I=   0.00mA
+03:41:16  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.2m  pres= 378.75hPa  temp=21.70°C  vz= -2.36m/s  ax= -9.18  ay= -1.15  az=  1.30 m/s²  gz=   0.3°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 5/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 5/90  after 5 attempts
+03:41:16  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.7m  pres= 378.75hPa  temp=21.77°C  vz=  0.31m/s  ax= -9.11  ay= -1.12  az=  1.57 m/s²  gz=   1.2°/s  V=0.000V  I=   0.00mA
+03:41:16  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.3m  pres= 378.77hPa  temp=21.80°C  vz= -1.01m/s  ax= -9.43  ay= -1.30  az=  1.34 m/s²  gz=  -0.3°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 6/90  status=timeout  attempt=1/5
+03:41:17  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.5m  pres= 378.76hPa  temp=21.83°C  vz=  0.59m/s  ax= -9.15  ay= -1.41  az=  1.36 m/s²  gz=  -1.0°/s  V=0.000V  I=   0.00mA
+03:41:17  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.8m  pres= 378.76hPa  temp=21.85°C  vz= -0.14m/s  ax= -8.78  ay= -1.25  az=  0.48 m/s²  gz=   0.7°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 6/90  status=timeout  attempt=2/5
+03:41:17  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.7m  pres= 378.76hPa  temp=21.88°C  vz=  0.05m/s  ax= -9.11  ay= -1.38  az=  0.71 m/s²  gz=   0.3°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 6/90  status=timeout  attempt=3/5
+03:41:18  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.7m  pres= 378.75hPa  temp=21.90°C  vz=  0.15m/s  ax= -9.20  ay= -1.52  az=  0.67 m/s²  gz=  -1.7°/s  V=0.000V  I=   0.00mA
+03:41:18  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.6m  pres= 378.74hPa  temp=21.88°C  vz=  1.01m/s  ax= -9.34  ay= -1.56  az=  0.74 m/s²  gz=   0.4°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 6/90  status=timeout  attempt=4/5
+03:41:18  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2399.1m  pres= 378.75hPa  temp=21.90°C  vz= -0.72m/s  ax= -9.27  ay= -1.66  az=  0.94 m/s²  gz=   0.2°/s  V=0.000V  I=   0.00mA
+03:41:19  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.9m  pres= 378.75hPa  temp=21.90°C  vz= -0.10m/s  ax= -9.17  ay= -1.69  az=  1.13 m/s²  gz=  -0.9°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 6/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 6/90  after 5 attempts
+03:41:19  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2399.4m  pres= 378.74hPa  temp=21.93°C  vz=  0.36m/s  ax= -8.99  ay= -1.66  az=  1.18 m/s²  gz=   1.8°/s  V=0.000V  I=   0.00mA
+03:41:19  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.9m  pres= 378.74hPa  temp=22.00°C  vz=  0.12m/s  ax= -9.53  ay= -1.40  az=  1.16 m/s²  gz=  -0.2°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 7/90  status=timeout  attempt=1/5
+03:41:20  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2399.2m  pres= 378.75hPa  temp=22.07°C  vz= -0.21m/s  ax= -9.24  ay= -1.57  az=  1.06 m/s²  gz=  -1.6°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 7/90  status=timeout  attempt=2/5
+03:41:20  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.8m  pres= 378.75hPa  temp=22.10°C  vz= -0.16m/s  ax= -9.11  ay= -1.68  az=  1.19 m/s²  gz=   1.4°/s  V=0.000V  I=   0.00mA
+03:41:21  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2399.0m  pres= 378.77hPa  temp=22.12°C  vz= -0.99m/s  ax= -9.37  ay= -1.50  az=  1.36 m/s²  gz=   0.2°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 7/90  status=timeout  attempt=3/5
+03:41:21  INFO     [SENSORS]  alt_ms5611=7570.7m  alt_bme280=2399.2m  pres= 378.73hPa  temp=22.12°C  vz=  2.12m/s  ax= -8.74  ay= -1.05  az=  1.75 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:21  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2399.8m  pres= 378.77hPa  temp=22.14°C  vz= -2.15m/s  ax= -9.09  ay= -1.10  az=  1.49 m/s²  gz=   4.2°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 7/90  status=timeout  attempt=4/5
+03:41:22  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2399.2m  pres= 378.73hPa  temp=22.37°C  vz=  1.97m/s  ax= -9.11  ay= -1.50  az=  1.01 m/s²  gz=  -3.7°/s  V=0.000V  I=   0.00mA
+03:41:22  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2399.3m  pres= 378.75hPa  temp=22.39°C  vz= -1.14m/s  ax= -9.09  ay= -1.56  az=  0.74 m/s²  gz=  -1.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 7/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 7/90  after 5 attempts
+03:41:22  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2399.4m  pres= 378.73hPa  temp=22.35°C  vz=  1.09m/s  ax= -9.28  ay= -1.50  az=  1.10 m/s²  gz=   2.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 8/90  status=timeout  attempt=1/5
+03:41:23  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2399.9m  pres= 378.74hPa  temp=22.30°C  vz= -0.29m/s  ax= -9.38  ay= -1.34  az=  1.07 m/s²  gz=  10.7°/s  V=0.000V  I=   0.00mA
+03:41:23  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2399.1m  pres= 378.74hPa  temp=22.35°C  vz=  0.04m/s  ax= -9.68  ay= -2.84  az= 10.37 m/s²  gz= -32.7°/s  V=0.000V  I=   0.00mA
+[RETRY] img=1 chunk 8/90  status=timeout  attempt=2/5
+03:41:23  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2399.0m  pres= 378.74hPa  temp=22.39°C  vz= -0.34m/s  ax= -2.76  ay= -0.57  az=  9.58 m/s²  gz=  11.3°/s  V=0.000V  I=   0.00mA
+03:41:24  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.6m  pres= 378.75hPa  temp=22.37°C  vz= -0.44m/s  ax=  0.00  ay= -0.23  az= 10.36 m/s²  gz=   6.9°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 8/90  status=timeout  attempt=3/5
+03:41:24  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.6m  pres= 378.75hPa  temp=22.35°C  vz=  0.06m/s  ax= -3.32  ay=  0.02  az=  7.75 m/s²  gz=   1.5°/s  V=0.000V  I=   0.00mA
+03:41:24  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.9m  pres= 378.75hPa  temp=22.34°C  vz= -0.09m/s  ax= -9.13  ay= -1.54  az=  2.06 m/s²  gz=  -5.7°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 8/90  status=timeout  attempt=4/5
+03:41:25  INFO     [SENSORS]  alt_ms5611=7570.7m  alt_bme280=2398.9m  pres= 378.72hPa  temp=22.34°C  vz=  1.41m/s  ax= -9.50  ay= -1.37  az=  0.13 m/s²  gz=  -2.5°/s  V=0.000V  I=   0.00mA
+03:41:25  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.6m  pres= 378.74hPa  temp=22.34°C  vz= -0.66m/s  ax= -6.74  ay= -0.84  az=  6.28 m/s²  gz=  -3.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 8/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 8/90  after 5 attempts
+03:41:26  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.9m  pres= 378.74hPa  temp=22.35°C  vz= -0.06m/s  ax= -2.25  ay= -0.88  az=  9.05 m/s²  gz=  -1.4°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 9/90  status=timeout  attempt=1/5
+03:41:26  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.5m  pres= 378.75hPa  temp=22.35°C  vz= -0.46m/s  ax= -2.24  ay= -0.43  az=  8.37 m/s²  gz=   8.7°/s  V=0.000V  I=   0.00mA
+03:41:26  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.8m  pres= 378.75hPa  temp=22.35°C  vz= -0.17m/s  ax= -9.17  ay= -1.56  az=  3.07 m/s²  gz=  -2.8°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 9/90  status=timeout  attempt=2/5
+03:41:27  INFO     [SENSORS]  alt_ms5611=7570.0m  alt_bme280=2398.9m  pres= 378.77hPa  temp=22.35°C  vz= -0.75m/s  ax= -9.26  ay= -1.48  az=  0.43 m/s²  gz=   5.4°/s  V=0.000V  I=   0.00mA
+03:41:27  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.9m  pres= 378.74hPa  temp=22.35°C  vz=  1.43m/s  ax=-11.25  ay=  1.85  az=  2.83 m/s²  gz=  -6.5°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 9/90  status=timeout  attempt=3/5
+03:41:27  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.8m  pres= 378.75hPa  temp=22.35°C  vz= -0.48m/s  ax= -8.66  ay= -1.01  az=  0.33 m/s²  gz=  27.7°/s  V=0.000V  I=   0.00mA
+03:41:28  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.7m  pres= 378.74hPa  temp=22.35°C  vz=  0.54m/s  ax= -9.14  ay= -0.68  az= -0.19 m/s²  gz= -17.4°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 9/90  status=timeout  attempt=4/5
+03:41:28  INFO     [SENSORS]  alt_ms5611=7570.0m  alt_bme280=2398.6m  pres= 378.77hPa  temp=22.35°C  vz= -1.54m/s  ax= -8.41  ay= -1.35  az=  1.25 m/s²  gz=   7.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 9/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 9/90  after 5 attempts
+03:41:28  INFO     [SENSORS]  alt_ms5611=7570.7m  alt_bme280=2398.6m  pres= 378.73hPa  temp=22.34°C  vz=  2.00m/s  ax= -9.21  ay= -1.14  az=  1.64 m/s²  gz=   2.0°/s  V=0.000V  I=   0.00mA
+03:41:29  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.7m  pres= 378.75hPa  temp=22.34°C  vz= -1.16m/s  ax= -9.21  ay= -1.27  az=  1.67 m/s²  gz=   4.8°/s  V=0.000V  I=   0.00mA
+[RETRY] telemetry (after img=1 chunk 9)  status=timeout  attempt=1/5
+03:41:29  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.7m  pres= 378.74hPa  temp=22.34°C  vz=  0.42m/s  ax= -9.13  ay= -1.43  az= -0.93 m/s²  gz=  -6.5°/s  V=0.000V  I=   0.00mA
+  [RETRY] telemetry (after img=1 chunk 9)  status=timeout  attempt=2/5
+03:41:29  INFO     [SENSORS]  alt_ms5611=7570.0m  alt_bme280=2398.6m  pres= 378.77hPa  temp=22.34°C  vz= -1.21m/s  ax= -8.57  ay= -1.56  az=  1.92 m/s²  gz=   9.7°/s  V=0.000V  I=   0.00mA
+03:41:30  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2398.5m  pres= 378.73hPa  temp=22.34°C  vz=  1.64m/s  ax= -9.15  ay= -1.10  az= -0.97 m/s²  gz=  -3.5°/s  V=0.000V  I=   0.00mA
+  [RETRY] telemetry (after img=1 chunk 9)  status=timeout  attempt=3/5
+03:41:30  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2398.5m  pres= 378.73hPa  temp=22.32°C  vz= -0.01m/s  ax= -9.43  ay= -1.82  az=  1.31 m/s²  gz= -21.0°/s  V=0.000V  I=   0.00mA
+03:41:31  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.5m  pres= 378.75hPa  temp=22.32°C  vz= -0.85m/s  ax= -7.47  ay= -2.84  az=  4.43 m/s²  gz= -13.7°/s  V=0.000V  I=   0.00mA
+  [RETRY] telemetry (after img=1 chunk 9)  status=timeout  attempt=4/5
+03:41:31  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.6m  pres= 378.74hPa  temp=22.32°C  vz=  0.66m/s  ax= -3.17  ay= -3.33  az=  8.44 m/s²  gz=  -7.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] telemetry (after img=1 chunk 9)  status=timeout  attempt=5/5
+  [FAIL]  telemetry (after img=1 chunk 9)  after 5 attempts
+  [ 11.1%]  img=1  chunk 10/90  img_ok=0  img_fail=10  tel_ok=0  tel_fail=1  elapsed=34.3s  rate=0.3 chunks/s
+03:41:31  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2398.4m  pres= 378.73hPa  temp=22.30°C  vz=  0.31m/s  ax=  0.17  ay= -2.32  az=  9.13 m/s²  gz= -13.6°/s  V=0.000V  I=   0.00mA
+03:41:32  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.4m  pres= 378.74hPa  temp=22.30°C  vz= -0.37m/s  ax= -1.51  ay= -2.67  az= 10.75 m/s²  gz=  87.3°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 10/90  status=timeout  attempt=1/5
+03:41:32  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.5m  pres= 378.75hPa  temp=22.29°C  vz= -0.65m/s  ax= -9.35  ay= -2.16  az=  2.16 m/s²  gz=  13.1°/s  V=0.000V  I=   0.00mA
+03:41:32  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.6m  pres= 378.75hPa  temp=22.29°C  vz=  0.23m/s  ax= -8.82  ay= -1.69  az= -1.71 m/s²  gz=   1.3°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 10/90  status=timeout  attempt=2/5
+03:41:33  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.7m  pres= 378.76hPa  temp=22.29°C  vz= -0.69m/s  ax= -6.88  ay= -1.69  az=  7.07 m/s²  gz=  -6.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 10/90  status=timeout  attempt=3/5
+03:41:33  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.7m  pres= 378.76hPa  temp=22.29°C  vz=  0.06m/s  ax= -7.25  ay= -1.19  az=  4.92 m/s²  gz=   1.2°/s  V=0.000V  I=   0.00mA
+03:41:33  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.8m  pres= 378.76hPa  temp=22.29°C  vz=  0.06m/s  ax= -8.19  ay= -1.04  az=  6.24 m/s²  gz=  -8.5°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 10/90  status=timeout  attempt=4/5
+03:41:34  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2398.2m  pres= 378.73hPa  temp=22.27°C  vz=  1.30m/s  ax= -6.14  ay= -0.36  az=  4.50 m/s²  gz= -15.1°/s  V=0.000V  I=   0.00mA
+03:41:34  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2399.0m  pres= 378.74hPa  temp=22.27°C  vz= -0.50m/s  ax= -7.41  ay= -0.85  az=  7.49 m/s²  gz=   9.0°/s  V=0.000V  I=   0.00mA
+03:41:35  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.6m  pres= 378.74hPa  temp=22.25°C  vz=  0.14m/s  ax= -5.12  ay= -0.14  az=  6.60 m/s²  gz=  -4.5°/s  V=0.000V  I=   0.00mA
+03:41:35  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.4m  pres= 378.74hPa  temp=22.27°C  vz= -0.04m/s  ax= -5.95  ay= -0.83  az=  7.77 m/s²  gz=  -1.4°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 11/90  status=timeout  attempt=1/5
+03:41:35  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.7m  pres= 378.74hPa  temp=22.25°C  vz=  0.12m/s  ax= -6.87  ay= -2.24  az=  6.84 m/s²  gz=  -7.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 11/90  status=timeout  attempt=2/5
+03:41:36  INFO     [SENSORS]  alt_ms5611=7570.8m  alt_bme280=2399.0m  pres= 378.72hPa  temp=22.27°C  vz=  0.88m/s  ax= -6.03  ay= -2.67  az=  6.78 m/s²  gz=  -4.5°/s  V=0.000V  I=   0.00mA
+03:41:36  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2399.0m  pres= 378.74hPa  temp=22.30°C  vz= -1.09m/s  ax= -4.66  ay= -0.20  az=  6.86 m/s²  gz= -25.9°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 11/90  status=timeout  attempt=3/5
+03:41:36  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.9m  pres= 378.75hPa  temp=22.29°C  vz= -0.17m/s  ax= -3.63  ay=  0.28  az=  7.33 m/s²  gz=  28.5°/s  V=0.000V  I=   0.00mA
+03:41:37  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.5m  pres= 378.75hPa  temp=22.29°C  vz=  0.00m/s  ax= -1.75  ay= -0.37  az=  7.27 m/s²  gz=  -5.7°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 11/90  status=timeout  attempt=4/5
+03:41:37  INFO     [SENSORS]  alt_ms5611=7570.7m  alt_bme280=2398.8m  pres= 378.73hPa  temp=22.27°C  vz=  0.87m/s  ax= -1.44  ay=  1.28  az=  9.85 m/s²  gz=  10.4°/s  V=0.000V  I=   0.00mA
+03:41:37  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.7m  pres= 378.76hPa  temp=22.27°C  vz= -1.43m/s  ax=  0.37  ay=  0.92  az=  9.40 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 11/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 11/90  after 5 attempts
+03:41:38  INFO     [SENSORS]  alt_ms5611=7570.8m  alt_bme280=2398.9m  pres= 378.72hPa  temp=22.25°C  vz=  1.82m/s  ax=  0.31  ay=  0.82  az=  9.69 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 12/90  status=timeout  attempt=1/5
+03:41:38  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.5m  pres= 378.74hPa  temp=22.25°C  vz= -1.12m/s  ax=  0.30  ay=  0.80  az=  9.69 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:38  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.5m  pres= 378.75hPa  temp=22.25°C  vz= -0.35m/s  ax=  0.31  ay=  0.82  az=  9.67 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 12/90  status=timeout  attempt=2/5
+03:41:39  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2399.2m  pres= 378.74hPa  temp=22.25°C  vz=  0.60m/s  ax=  0.32  ay=  0.82  az=  9.68 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:41:39  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.6m  pres= 378.74hPa  temp=22.25°C  vz=  0.00m/s  ax=  0.31  ay=  0.82  az=  9.70 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 12/90  status=timeout  attempt=3/5
+03:41:40  INFO     [SENSORS]  alt_ms5611=7570.8m  alt_bme280=2398.7m  pres= 378.72hPa  temp=22.24°C  vz=  0.97m/s  ax=  0.33  ay=  0.81  az=  9.68 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:41:40  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.7m  pres= 378.76hPa  temp=22.24°C  vz= -1.91m/s  ax=  0.33  ay=  0.79  az=  9.74 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 12/90  status=timeout  attempt=4/5
+03:41:40  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.8m  pres= 378.74hPa  temp=22.24°C  vz=  0.62m/s  ax=  0.32  ay=  0.82  az=  9.70 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+03:41:41  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.9m  pres= 378.75hPa  temp=22.24°C  vz= -0.12m/s  ax=  0.31  ay=  0.80  az=  9.74 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 12/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 12/90  after 5 attempts
+03:41:41  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.6m  pres= 378.74hPa  temp=22.22°C  vz=  0.35m/s  ax=  0.32  ay=  0.80  az=  9.72 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 13/90  status=timeout  attempt=1/5
+03:41:41  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.3m  pres= 378.73hPa  temp=22.22°C  vz=  0.25m/s  ax=  0.32  ay=  0.81  az=  9.67 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:42  INFO     [SENSORS]  alt_ms5611=7570.7m  alt_bme280=2398.3m  pres= 378.73hPa  temp=22.22°C  vz=  0.37m/s  ax=  0.32  ay=  0.80  az=  9.68 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 13/90  status=timeout  attempt=2/5
+03:41:42  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.8m  pres= 378.75hPa  temp=22.22°C  vz= -1.20m/s  ax=  0.33  ay=  0.78  az=  9.70 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:41:42  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2398.8m  pres= 378.73hPa  temp=22.20°C  vz=  0.95m/s  ax=  0.31  ay=  0.79  az=  9.71 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 13/90  status=timeout  attempt=3/5
+03:41:43  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.9m  pres= 378.74hPa  temp=22.20°C  vz= -0.56m/s  ax=  0.31  ay=  0.79  az=  9.65 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:43  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.6m  pres= 378.75hPa  temp=22.20°C  vz= -0.12m/s  ax=  0.32  ay=  0.78  az=  9.67 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 13/90  status=timeout  attempt=4/5
+03:41:43  INFO     [SENSORS]  alt_ms5611=7570.0m  alt_bme280=2398.8m  pres= 378.76hPa  temp=22.20°C  vz= -0.91m/s  ax=  0.31  ay=  0.78  az=  9.70 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 13/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 13/90  after 5 attempts
+03:41:44  INFO     [SENSORS]  alt_ms5611=7570.7m  alt_bme280=2398.8m  pres= 378.73hPa  temp=22.19°C  vz=  1.97m/s  ax=  0.32  ay=  0.79  az=  9.67 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+03:41:44  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.3m  pres= 378.74hPa  temp=22.20°C  vz= -0.95m/s  ax=  0.33  ay=  0.78  az=  9.67 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 14/90  status=timeout  attempt=1/5
+03:41:45  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.6m  pres= 378.73hPa  temp=22.20°C  vz=  0.50m/s  ax=  0.30  ay=  0.78  az=  9.71 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:41:45  INFO     [SENSORS]  alt_ms5611=7570.7m  alt_bme280=2399.0m  pres= 378.72hPa  temp=22.19°C  vz=  0.49m/s  ax=  0.31  ay=  0.81  az=  9.66 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 14/90  status=timeout  attempt=2/5
+03:41:45  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.6m  pres= 378.74hPa  temp=22.19°C  vz= -0.71m/s  ax=  0.34  ay=  0.81  az=  9.67 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:41:46  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.9m  pres= 378.74hPa  temp=22.19°C  vz= -0.08m/s  ax=  0.31  ay=  0.78  az=  9.69 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 14/90  status=timeout  attempt=3/5
+03:41:46  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.9m  pres= 378.75hPa  temp=22.19°C  vz= -0.48m/s  ax=  0.29  ay=  0.78  az=  9.68 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+[RETRY] img=1 chunk 14/90  status=timeout  attempt=4/5
+03:41:46  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2399.1m  pres= 378.74hPa  temp=22.19°C  vz=  0.31m/s  ax=  0.31  ay=  0.78  az=  9.69 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:41:47  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.9m  pres= 378.74hPa  temp=22.17°C  vz=  0.01m/s  ax=  0.31  ay=  0.79  az=  9.67 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 14/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 14/90  after 5 attempts
+03:41:47  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.3m  pres= 378.73hPa  temp=22.17°C  vz=  0.41m/s  ax=  0.31  ay=  0.78  az=  9.65 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:47  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2399.0m  pres= 378.74hPa  temp=22.17°C  vz= -0.21m/s  ax=  0.30  ay=  0.80  az=  9.66 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 15/90  status=timeout  attempt=1/5
+03:41:48  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.8m  pres= 378.74hPa  temp=22.17°C  vz=  0.19m/s  ax=  0.30  ay=  0.80  az=  9.69 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:48  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.7m  pres= 378.74hPa  temp=22.17°C  vz= -0.44m/s  ax=  0.29  ay=  0.78  az=  9.66 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 15/90  status=timeout  attempt=2/5
+03:41:48  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.7m  pres= 378.76hPa  temp=22.17°C  vz= -0.83m/s  ax=  0.30  ay=  0.80  az=  9.64 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 15/90  status=timeout  attempt=3/5
+03:41:49  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.8m  pres= 378.74hPa  temp=22.15°C  vz=  0.78m/s  ax=  0.31  ay=  0.81  az=  9.66 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:41:49  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.6m  pres= 378.74hPa  temp=22.15°C  vz=  0.15m/s  ax=  0.32  ay=  0.80  az=  9.66 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 15/90  status=timeout  attempt=4/5
+03:41:50  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.8m  pres= 378.75hPa  temp=22.15°C  vz= -0.39m/s  ax=  0.31  ay=  0.79  az=  9.62 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:50  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.5m  pres= 378.74hPa  temp=22.15°C  vz=  0.56m/s  ax=  0.31  ay=  0.77  az=  9.72 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 15/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 15/90  after 5 attempts
+03:41:50  INFO     [SENSORS]  alt_ms5611=7570.8m  alt_bme280=2399.0m  pres= 378.72hPa  temp=22.14°C  vz=  0.82m/s  ax=  0.31  ay=  0.78  az=  9.67 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:51  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.7m  pres= 378.74hPa  temp=22.14°C  vz= -0.94m/s  ax=  0.32  ay=  0.79  az=  9.65 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 16/90  status=timeout  attempt=1/5
+03:41:51  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.9m  pres= 378.74hPa  temp=22.14°C  vz= -0.02m/s  ax=  0.30  ay=  0.78  az=  9.70 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 16/90  status=timeout  attempt=2/5
+03:41:51  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.7m  pres= 378.75hPa  temp=22.14°C  vz= -0.56m/s  ax=  0.32  ay=  0.80  az=  9.65 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:52  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.8m  pres= 378.76hPa  temp=22.14°C  vz= -0.21m/s  ax=  0.32  ay=  0.79  az=  9.65 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+[RETRY] img=1 chunk 16/90  status=timeout  attempt=3/5
+03:41:52  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.9m  pres= 378.75hPa  temp=22.14°C  vz=  0.46m/s  ax=  0.29  ay=  0.77  az=  9.69 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+03:41:52  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.7m  pres= 378.74hPa  temp=22.12°C  vz=  0.24m/s  ax=  0.31  ay=  0.78  az=  9.62 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 16/90  status=timeout  attempt=4/5
+03:41:53  INFO     [SENSORS]  alt_ms5611=7570.8m  alt_bme280=2399.1m  pres= 378.72hPa  temp=22.12°C  vz=  1.08m/s  ax=  0.30  ay=  0.79  az=  9.64 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+03:41:53  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.8m  pres= 378.75hPa  temp=22.12°C  vz= -1.58m/s  ax=  0.33  ay=  0.79  az=  9.67 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 16/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 16/90  after 5 attempts
+03:41:53  INFO     [SENSORS]  alt_ms5611=7570.0m  alt_bme280=2398.6m  pres= 378.76hPa  temp=22.12°C  vz= -0.64m/s  ax=  0.30  ay=  0.79  az=  9.66 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 17/90  status=timeout  attempt=1/5
+03:41:54  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2399.0m  pres= 378.75hPa  temp=22.12°C  vz=  0.89m/s  ax=  0.32  ay=  0.80  az=  9.63 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+03:41:54  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2399.0m  pres= 378.75hPa  temp=22.12°C  vz= -0.17m/s  ax=  0.33  ay=  0.77  az=  9.68 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 17/90  status=timeout  attempt=2/5
+03:41:55  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.9m  pres= 378.75hPa  temp=22.10°C  vz=  0.08m/s  ax=  0.29  ay=  0.78  az=  9.65 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:41:55  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2399.1m  pres= 378.74hPa  temp=22.10°C  vz=  0.48m/s  ax=  0.31  ay=  0.80  az=  9.64 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 17/90  status=timeout  attempt=3/5
+03:41:55  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2398.7m  pres= 378.76hPa  temp=22.10°C  vz= -0.91m/s  ax=  0.31  ay=  0.81  az=  9.63 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:56  INFO     [SENSORS]  alt_ms5611=7570.0m  alt_bme280=2399.2m  pres= 378.76hPa  temp=22.10°C  vz= -0.21m/s  ax=  0.30  ay=  0.76  az=  9.69 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 17/90  status=timeout  attempt=4/5
+03:41:56  INFO     [SENSORS]  alt_ms5611=7570.8m  alt_bme280=2399.0m  pres= 378.72hPa  temp=22.09°C  vz=  2.15m/s  ax=  0.31  ay=  0.78  az=  9.64 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 17/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 17/90  after 5 attempts
+03:41:56  INFO     [SENSORS]  alt_ms5611=7570.1m  alt_bme280=2399.0m  pres= 378.76hPa  temp=22.10°C  vz= -2.09m/s  ax=  0.31  ay=  0.78  az=  9.65 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+03:41:57  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2399.2m  pres= 378.73hPa  temp=22.09°C  vz=  1.51m/s  ax=  0.31  ay=  0.80  az=  9.60 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 18/90  status=timeout  attempt=1/5
+03:41:57  INFO     [SENSORS]  alt_ms5611=7570.7m  alt_bme280=2398.8m  pres= 378.72hPa  temp=22.09°C  vz=  0.31m/s  ax=  0.31  ay=  0.80  az=  9.65 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:57  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2398.9m  pres= 378.75hPa  temp=22.09°C  vz= -1.27m/s  ax=  0.31  ay=  0.78  az=  9.64 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+ [RETRY] img=1 chunk 18/90  status=timeout  attempt=2/5
+03:41:58  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.6m  pres= 378.75hPa  temp=22.10°C  vz= -0.20m/s  ax=  0.32  ay=  0.79  az=  9.66 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:58  INFO     [SENSORS]  alt_ms5611=7569.9m  alt_bme280=2398.5m  pres= 378.77hPa  temp=22.10°C  vz= -0.79m/s  ax=  0.30  ay=  0.78  az=  9.66 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 18/90  status=timeout  attempt=3/5
+03:41:58  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2399.0m  pres= 378.73hPa  temp=22.09°C  vz=  1.96m/s  ax=  0.31  ay=  0.76  az=  9.66 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:41:59  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.8m  pres= 378.74hPa  temp=22.09°C  vz= -0.35m/s  ax=  0.30  ay=  0.77  az=  9.63 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 18/90  status=timeout  attempt=4/5
+03:41:59  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.8m  pres= 378.74hPa  temp=22.07°C  vz= -0.34m/s  ax=  0.31  ay=  0.77  az=  9.66 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 18/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 18/90  after 5 attempts
+03:42:00  INFO     [SENSORS]  alt_ms5611=7570.7m  alt_bme280=2398.9m  pres= 378.73hPa  temp=22.07°C  vz=  0.81m/s  ax=  0.31  ay=  0.77  az=  9.64 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:42:00  INFO     [SENSORS]  alt_ms5611=7570.3m  alt_bme280=2399.0m  pres= 378.75hPa  temp=22.09°C  vz= -0.89m/s  ax=  0.30  ay=  0.76  az=  9.66 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 19/90  status=timeout  attempt=1/5
+03:42:00  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.6m  pres= 378.74hPa  temp=22.07°C  vz=  0.22m/s  ax=  0.30  ay=  0.76  az=  9.66 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+03:42:01  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2398.6m  pres= 378.73hPa  temp=22.07°C  vz=  0.52m/s  ax=  0.29  ay=  0.77  az=  9.67 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 19/90  status=timeout  attempt=2/5
+03:42:01  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.4m  pres= 378.74hPa  temp=22.07°C  vz= -0.46m/s  ax=  0.30  ay=  0.77  az=  9.67 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:42:01  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.5m  pres= 378.75hPa  temp=22.07°C  vz= -0.64m/s  ax=  0.31  ay=  0.78  az=  9.63 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 19/90  status=timeout  attempt=3/5
+03:42:02  INFO     [SENSORS]  alt_ms5611=7571.0m  alt_bme280=2398.6m  pres= 378.71hPa  temp=22.05°C  vz=  2.07m/s  ax=  0.31  ay=  0.79  az=  9.67 m/s²  gz=   0.0°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 19/90  status=timeout  attempt=4/5
+03:42:02  INFO     [SENSORS]  alt_ms5611=7570.0m  alt_bme280=2398.5m  pres= 378.76hPa  temp=22.07°C  vz= -2.56m/s  ax=  0.32  ay=  0.77  az=  9.62 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+03:42:02  INFO     [SENSORS]  alt_ms5611=7570.4m  alt_bme280=2398.8m  pres= 378.74hPa  temp=22.05°C  vz=  1.07m/s  ax=  0.30  ay=  0.78  az=  9.63 m/s²  gz=   0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] img=1 chunk 19/90  status=timeout  attempt=5/5
+  [FAIL]  img=1 chunk 19/90  after 5 attempts
+03:42:03  INFO     [SENSORS]  alt_ms5611=7570.6m  alt_bme280=2398.5m  pres= 378.73hPa  temp=22.05°C  vz=  0.58m/s  ax=  0.30  ay=  0.78  az=  9.64 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+03:42:03  INFO     [SENSORS]  alt_ms5611=7570.5m  alt_bme280=2398.3m  pres= 378.74hPa  temp=22.05°C  vz= -0.27m/s  ax=  0.29  ay=  0.78  az=  9.67 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
+  [RETRY] telemetry (after img=1 chunk 19)  status=timeout  attempt=1/5
+03:42:04  INFO     [SENSORS]  alt_ms5611=7570.2m  alt_bme280=2398.6m  pres= 378.75hPa  temp=22.05°C  vz= -0.81m/s  ax=  0.30  ay=  0.77  az=  9.65 m/s²  gz=  -0.1°/s  V=0.000V  I=   0.00mA
